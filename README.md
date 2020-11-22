@@ -4,7 +4,7 @@
 *เว็บไซต์นี้ไม่มีกฎเกณฑ์ในการทำข้อสอบ
 
 Flowchart
-![](sornflowchart.svg)
+![](sornflowchart1.svg)
 
 Automatic Exam Taking
 ![](1_AUTO_TEST.gif)
