@@ -1,6 +1,6 @@
 # Automation Project (Case Study)
 
-*This website does not have any test rules.
+*This website does not have any exam rules.
 *เว็บไซต์นี้ไม่มีกฎเกณฑ์ในการทำข้อสอบ
 
 Videos:
