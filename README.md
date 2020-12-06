@@ -13,4 +13,4 @@ Automatic Exam Answer Gathering
 ![](2_AUTO_GATHER.gif)
 
 Answers
-![](ans.gif)
+![](ans.gif.gif)
