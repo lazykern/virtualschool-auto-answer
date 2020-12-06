@@ -11,3 +11,6 @@ Automatic Exam Taking
 
 Automatic Exam Answer Gathering
 ![](2_AUTO_GATHER.gif)
+
+Answers
+![](ans.gif)
