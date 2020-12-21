@@ -5,3 +5,4 @@ sorn.code-workspace
 all.csv
 usr/user_data.csv
 usr/user_done_data.csv
+*.png

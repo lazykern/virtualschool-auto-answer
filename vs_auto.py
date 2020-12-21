@@ -39,6 +39,9 @@ sv1  = os.path.join(VSchool,'assets/save.png')
 sv2  = os.path.join(VSchool,'assets/save_old.png')
 skp1  = os.path.join(VSchool,'assets/skip.png')
 skp2  = os.path.join(VSchool,'assets/skp.png')
+skp3  = os.path.join(VSchool,'assets/skp3.png')
+skp4  = os.path.join(VSchool,'assets/skp4.png')
+skp5  = os.path.join(VSchool,'assets/skp5.png')
 white = os.path.join(VSchool,'assets/white.png')
 
 def getID():
@@ -97,6 +100,12 @@ def skip():
     lc_skip = auto.locateCenterOnScreen(skp1)
     if lc_skip == None:
         lc_skip = auto.locateCenterOnScreen(skp2)
+        if lc_skip == None:
+            lc_skip = auto.locateCenterOnScreen(skp3)
+            if lc_skip == None:
+                lc_skip = auto.locateCenterOnScreen(skp4)
+                if lc_skip == None:
+                    lc_skip = auto.locateCenterOnScreen(skp5)
         
     while lc_skip == None:
 
@@ -108,9 +117,15 @@ def skip():
         if lc_skip == None:
             lc_skip = auto.locateCenterOnScreen(skp2)
             if lc_skip == None:
-                sys.stdout.write("\r"+ "SKIP not found")
-                sys.stdout.flush()
-                time.sleep(0.25)
+                lc_skip = auto.locateCenterOnScreen(skp3)
+                if lc_skip == None:
+                    lc_skip = auto.locateCenterOnScreen(skp4)
+                    if lc_skip == None:
+                        lc_skip = auto.locateCenterOnScreen(skp5)
+                        if lc_skip == None:
+                            sys.stdout.write("\r"+ "SKIP not found")
+                            sys.stdout.flush()
+                            time.sleep(0.25)
 
         
     auto.click(lc_skip)

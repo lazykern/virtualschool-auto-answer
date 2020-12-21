@@ -12,9 +12,12 @@ HUB = os.path.join(PATH,'assets/ss.png')
 QU = os.path.join(PATH,'assets/nt.png')
 ส่ง = os.path.join(PATH,'assets/send_.png')
 ยืน = os.path.join(PATH,'assets/stand.png')
+ยืนน = os.path.join(PATH,'assets/stand2.png')
+load2 = os.path.join(PATH,'assets/load2.png')
 ตก = os.path.join(PATH,'assets/fall.png')
 LAST = os.path.join(PATH,'assets/LAST.png')
 SEND = os.path.join(PATH,'assets/send_PRETEST.png')
+SEND2 = os.path.join(PATH,'assets/send2.png')
 X = os.path.join(PATH,'assets/X.png')
 UNWANTED = os.path.join(PATH,'assets/UNWANTED.png')
 CONFIRM_PT = os.path.join(PATH,'assets/CONFIRM_PT.png')
@@ -127,6 +130,8 @@ def to_ANSWER():
     lc = pag.locateCenterOnScreen(ยืน)
     while lc == None:
         lc = pag.locateCenterOnScreen(ยืน)
+        while lc == None:
+            lc = pag.locateCenterOnScreen(ยืน2)
 
     pag.click(lc)
     print('Clicked ยืนยัน')
@@ -144,6 +149,8 @@ def send():
     lc = pag.locateCenterOnScreen(SEND)
     while lc == None:
         lc = pag.locateCenterOnScreen(SEND)
+        if lc == None:
+            lc = pag.locateCenterOnScreen(SEND2)
 
     pag.click(lc)
     print('Clicked SEND')
@@ -157,9 +164,26 @@ def decline():
     print('Clicked UNWANTED')
 
 def confirm():
+    time.sleep(2)
+    loading = pag.locateCenterOnScreen(load2)
+    if not loading == None:
+        print('Loading')
+        time.sleep(10)
+    if not loading == None:
+        print('Loading')
+        time.sleep(10)
+    if not loading == None:
+        print('Loading')
+        time.sleep(10)  
     lc = pag.locateCenterOnScreen(ยืน)
+    if lc == None:
+        lc = pag.locateCenterOnScreen(ยืนน)
+            
     while lc == None:
         lc = pag.locateCenterOnScreen(ยืน)
+        if lc == None:
+            lc = pag.locateCenterOnScreen(ยืนน)
+            
 
     pag.click(lc)
     print('Clicked CONFIRM')
