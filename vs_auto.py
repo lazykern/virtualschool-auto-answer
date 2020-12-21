@@ -72,6 +72,7 @@ def getID():
     
     sys.stdout.write("\r" + "ID found")
     sys.stdout.flush()
+    
     return cb.paste()
 
 def save():
@@ -147,9 +148,9 @@ def clickChoice(choice,lang):
             4: choice_4E,
             5: choice_5E
             }
-    choice = int(choice)
-    lc_choice = auto.locateCenterOnScreen(switcher[choice])
-    print(choice)
+    choiceN = int(choice)
+    lc_choice = auto.locateCenterOnScreen(switcher[choiceN])
+    print(choiceN)
     while lc_choice == None:
 
 
@@ -164,14 +165,14 @@ def clickChoice(choice,lang):
             auto.press('pagedown')
             auto.press('pagedown')
             time.sleep(1)
-            lc_choice = auto.locateCenterOnScreen(switcher[choice])
+            lc_choice = auto.locateCenterOnScreen(switcher[choiceN])
             
 
     print('\n')
     sys.stdout.write("\r" + "Choice found")
     sys.stdout.flush()
     auto.click(lc_choice)
-    print('\n(',choice,') Choice clicked') 
+    print('\n(',choiceN,') Choice clicked') 
 
 
 
@@ -185,6 +186,7 @@ def find_10():
     return auto.locateCenterOnScreen(quiz_10)
 
 def auto_take50(lang):
+    inp_old = None
     wow=[]
 
     i = 0
@@ -199,6 +201,10 @@ def auto_take50(lang):
         time.sleep(1)
 
         inp = getID()
+        if inp == inp_old:
+            auto.doubleClick(256,587)
+            inp = getID()
+        inp_old = inp
         print(inp)
         x = vs.answer(inp)
         ndone = ndone+1
@@ -244,6 +250,7 @@ def auto_take50(lang):
 
 def auto_take10(lang,nwrong = 1):
     wow=[]
+    inp_old = None
 
     i = 0
     ncorrect = 0
@@ -256,6 +263,13 @@ def auto_take10(lang,nwrong = 1):
     while True:
         time.sleep(1)
         inp = getID()
+        if inp == inp_old:
+            time.sleep(1)
+            print('Error: Duplicate ID')
+            auto.doubleClick(256,587)
+            inp = getID()
+        inp_old = inp
+        
         print(inp)
         x = vs.answer(inp)
         ndone = ndone+1
