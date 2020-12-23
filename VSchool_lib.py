@@ -131,7 +131,7 @@ def to_ANSWER():
     while lc == None:
         lc = pag.locateCenterOnScreen(ยืน)
         while lc == None:
-            lc = pag.locateCenterOnScreen(ยืน2)
+            lc = pag.locateCenterOnScreen(ยืนน)
 
     pag.click(lc)
     print('Clicked ยืนยัน')
@@ -245,6 +245,12 @@ def gather():
                                         5:'E'
                                     })
         เฉลย.drop(columns =  'ans_TH').drop_duplicates().sort_values('id').reset_index(drop= True).to_csv('/home/lloli/Documents/GitHub/Sorn/all.csv',index=False)
+        data = pd.read_csv('/home/lloli/Documents/GitHub/Sorn/all.csv')
+        data = data.drop(data[data['id'] == data['ans']].index) 
+        data2 = pd.DataFrame()
+        data2['id'] = data['id']
+        data2['ans'] = data['ans']
+        data2.to_csv('/home/lloli/Documents/GitHub/Sorn/all.csv',index=False)
         err = Next()
         N = N +1
         print('Quiz Number:', N,'\n')

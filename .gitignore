@@ -6,3 +6,5 @@ all.csv
 usr/user_data.csv
 usr/user_done_data.csv
 *.png
+__pycache__/VSchool_lib.cpython-36.pyc
+__pycache__/vs_auto.cpython-36.pyc

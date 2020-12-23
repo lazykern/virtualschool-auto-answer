@@ -45,6 +45,9 @@ skp5  = os.path.join(VSchool,'assets/skp5.png')
 white = os.path.join(VSchool,'assets/white.png')
 
 def getID():
+    
+    time.sleep(0.2)
+    auto.click(50,500)
 
     lc = auto.locateCenterOnScreen(id)
     while lc == None:
@@ -58,12 +61,18 @@ def getID():
         sys.stdout.flush()
         time.sleep(0.25)
 
+
+    auto.click(50,500)
+    time.sleep(0.2)
     sys.stdout.write("\r"+ "ID found")
     sys.stdout.flush()
     auto.tripleClick(lc)
     auto.hotkey('ctrl','c')
 
     while not cb.paste().count('-') == 3:
+        time.sleep(0.2)
+        auto.click(50,500)
+        time.sleep(0.2)
         auto.tripleClick(lc)
         auto.click(lc)
         auto.hotkey('ctrl','c')
@@ -202,6 +211,7 @@ def auto_take50(lang):
 
         inp = getID()
         if inp == inp_old:
+            print('Error: Duplicate ID')
             auto.doubleClick(256,587)
             inp = getID()
         inp_old = inp
