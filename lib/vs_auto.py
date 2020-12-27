@@ -7,7 +7,7 @@ VSchool = '/home/lloli/Documents/GitHub/Sorn'
 sys.path.append(VSchool)
 sys.path.append(LIB)
 import VSchool_lib as vsl
-import vschool_lib as vs
+import vschool_read as vs
 import pandas as pd
 import time
 
