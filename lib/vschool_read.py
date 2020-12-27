@@ -1,7 +1,7 @@
 import pandas as pd
 import os
-
-data = pd.read_csv('/home/lloli/Documents/GitHub/Sorn/all.csv')
+data_path = '/home/lloli/Documents/GitHub/Sorn/all.csv'
+data = pd.read_csv(data_path)
 class read:
     def __init__(self, file):
             self.file = file 
@@ -209,12 +209,12 @@ def concat(input_dir,output_path):
     all_df.to_csv(output_path,columns=['id','ans_TH','ans'],index=False)
 
 def answer(ID):
-    data = pd.read_csv('/home/lloli/Documents/GitHub/Sorn/all.csv')
+    data = pd.read_csv(data_path)
     data = data.drop(data[data['id'] == data['ans']].index) 
     data2 = pd.DataFrame()
     data2['id'] = data['id']
     data2['ans'] = data['ans']
-    data2.to_csv('/home/lloli/Documents/GitHub/Sorn/all.csv',index=False)
+    data2.to_csv(data_path,index=False)
     data = data2
 
     d  = data[data['id'] == ID.split(' ')[-1]].values

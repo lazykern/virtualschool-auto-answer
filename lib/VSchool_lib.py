@@ -21,7 +21,11 @@ SEND2 = os.path.join(PATH,'assets/send2.png')
 X = os.path.join(PATH,'assets/X.png')
 UNWANTED = os.path.join(PATH,'assets/UNWANTED.png')
 CONFIRM_PT = os.path.join(PATH,'assets/CONFIRM_PT.png')
-data = pd.read_csv('/home/lloli/Documents/GitHub/Sorn/all.csv')
+
+data_path = '/home/lloli/Documents/GitHub/Sorn/all.csv'
+data = pd.read_csv(data_path)
+
+
 lst_ID = data['id'].to_list()
 lst_ANS = data['ans'].to_list()
 
@@ -244,15 +248,15 @@ def gather():
                                         4:'D',
                                         5:'E'
                                     })
-        เฉลย.drop(columns =  'ans_TH').drop_duplicates().sort_values('id').reset_index(drop= True).to_csv('/home/lloli/Documents/GitHub/Sorn/all.csv',index=False)
-        data = pd.read_csv('/home/lloli/Documents/GitHub/Sorn/all.csv')
+        เฉลย.drop(columns =  'ans_TH').drop_duplicates().sort_values('id').reset_index(drop= True).to_csv(data_path,index=False)
+        data = pd.read_csv(data_path)
         data = data.drop(data[data['id'] == data['ans']].index)
         if not 'int' in str(data.dtypes['ans']):
             data = data.drop(data[data['ans'].str.len() > 1].index[0])
         data2 = pd.DataFrame()
         data2['id'] = data['id']
         data2['ans'] = data['ans']
-        data2.to_csv('/home/lloli/Documents/GitHub/Sorn/all.csv',index=False)
+        data2.to_csv(data_path,index=False)
         err = Next()
         N = N +1
         print('Quiz Number:', N,'\n')
