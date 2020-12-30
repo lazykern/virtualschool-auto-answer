@@ -31,9 +31,9 @@ lst_ANS = data['ans'].to_list()
 
 def getID():
 
-    lc = pag.locateCenterOnScreen(ID)
+    lc = pag.locateCenterOnScreen(image=ID)
     while lc == None:
-        lc = pag.locateCenterOnScreen(ID)
+        lc = pag.locateCenterOnScreen(image=ID)
         print('ID not Found')
 
 
@@ -51,9 +51,9 @@ def getID():
 
 def getANS():
 
-    lc = pag.locateCenterOnScreen(ANS)
+    lc = pag.locateCenterOnScreen(image=ANS)
     while lc == None:
-        lc = pag.locateCenterOnScreen(ANS)
+        lc = pag.locateCenterOnScreen(image=ANS)
         print('ANS not Found')
 
 
@@ -71,15 +71,15 @@ def getANS():
     
 def Next():
     e = 0
-    lc = pag.locateCenterOnScreen(NEXT)
+    lc = pag.locateCenterOnScreen(image=NEXT)
 
     while lc == None:
-        lc = pag.locateCenterOnScreen(NEXT)
+        lc = pag.locateCenterOnScreen(image=NEXT)
         print('NEXT not Found')
         for i in range(0,3):
             pag.press('pagedown')
         time.sleep(1)
-        lc = pag.locateCenterOnScreen(NEXT)
+        lc = pag.locateCenterOnScreen(image=NEXT)
 
 
         e  = e+1
@@ -87,11 +87,11 @@ def Next():
             for i in range(0,3):
                 pag.press('pageup')
             time.sleep(1)
-            lc = pag.locateCenterOnScreen(HUB)
+            lc = pag.locateCenterOnScreen(image=HUB)
             while lc == None:
                 pag.press('pageup')
                 time.sleep(1)
-                lc = pag.locateCenterOnScreen(HUB)
+                lc = pag.locateCenterOnScreen(image=HUB)
                 print('HUB not found')
                 
     pag.click(lc)
@@ -102,74 +102,77 @@ def Next():
     return e
 
 def find_LAST():
-    lc = pag.locateCenterOnScreen(LAST)
+    lc = pag.locateCenterOnScreen(image=LAST)
     if lc == None:
         pag.press('pagedown')
         pag.press('pagedown')
         pag.press('pagedown')
         time.sleep(1)
-        lc = pag.locateCenterOnScreen(LAST)
+        lc = pag.locateCenterOnScreen(image=LAST)
     return lc
 
 def to_ANSWER():
     o = 0
-    lc = pag.locateCenterOnScreen(QU)
+    lc = pag.locateCenterOnScreen(image=QU)
     while lc == None:
         pag.press('pagedown')
         time.sleep(1)
-        lc = pag.locateCenterOnScreen(QU)
+        lc = pag.locateCenterOnScreen(image=QU)
         if o == 5:
-            lc = pag.locateCenterOnScreen(LAST)
+            lc = pag.locateCenterOnScreen(image=LAST)
             
     pag.click(lc)
     print('Clicked ข้อสอบ')
 
-    lc = pag.locateCenterOnScreen(ส่ง)
+    lc = pag.locateCenterOnScreen(image=ส่ง)
     while lc == None:
-        lc = pag.locateCenterOnScreen(ส่ง)
+        lc = pag.locateCenterOnScreen(image=ส่ง)
 
     pag.click(lc)
     print('Clicked ส่ง')
 
-    lc = pag.locateCenterOnScreen(ยืน)
+    lc = pag.locateCenterOnScreen(image=ยืน)
     while lc == None:
-        lc = pag.locateCenterOnScreen(ยืน)
+        lc = pag.locateCenterOnScreen(image=ยืน)
         while lc == None:
-            lc = pag.locateCenterOnScreen(ยืนน)
+            lc = pag.locateCenterOnScreen(image=ยืนน)
 
     pag.click(lc)
     print('Clicked ยืนยัน')
 
 
-    lc = pag.locateCenterOnScreen(ตก)
+    lc = pag.locateCenterOnScreen(image=ตก)
     while lc == None:
         pag.click(x=1463, y=489)
-        lc = pag.locateCenterOnScreen(ตก)
+        lc = pag.locateCenterOnScreen(image=ตก)
 
     pag.click(lc)
     print('Clicked ตกลง')
 
 def send():
-    lc = pag.locateCenterOnScreen(SEND)
+    lc = pag.locateCenterOnScreen(image=SEND)
     while lc == None:
-        lc = pag.locateCenterOnScreen(SEND)
+        lc = pag.locateCenterOnScreen(image=SEND)
         if lc == None:
-            lc = pag.locateCenterOnScreen(SEND2)
+            lc = pag.locateCenterOnScreen(image=SEND2)
 
     pag.click(lc)
     print('Clicked SEND')
 
 def decline():
-    lc = pag.locateCenterOnScreen(UNWANTED)
+    lc = pag.locateCenterOnScreen(image=UNWANTED)
     while lc == None:
-        lc = pag.locateCenterOnScreen(UNWANTED)
+        lc = pag.locateCenterOnScreen(image=UNWANTED)
 
-    pag.click(lc)
+    pag.click(x=975, y=304)
+    lc = pag.locateCenterOnScreen(image=UNWANTED)
+    if not lc == None:
+        pag.click(lc)
     print('Clicked UNWANTED')
-
+    
 def confirm():
     time.sleep(2)
-    loading = pag.locateCenterOnScreen(load2)
+    loading = pag.locateCenterOnScreen(image=load2)
     if not loading == None:
         print('Loading')
         time.sleep(10)
@@ -179,40 +182,40 @@ def confirm():
     if not loading == None:
         print('Loading')
         time.sleep(10)  
-    lc = pag.locateCenterOnScreen(ยืน)
+    lc = pag.locateCenterOnScreen(image=ยืน)
     if lc == None:
-        lc = pag.locateCenterOnScreen(ยืนน)
+        lc = pag.locateCenterOnScreen(image=ยืนน)
             
     while lc == None:
-        lc = pag.locateCenterOnScreen(ยืน)
+        lc = pag.locateCenterOnScreen(image=ยืน)
         if lc == None:
-            lc = pag.locateCenterOnScreen(ยืนน)
+            lc = pag.locateCenterOnScreen(image=ยืนน)
             
 
     pag.click(lc)
     print('Clicked CONFIRM')
     
 def agree_PT():
-    lc = pag.locateCenterOnScreen(CONFIRM_PT)
+    lc = pag.locateCenterOnScreen(image=CONFIRM_PT)
     while lc == None:
         pag.moveTo(x=1463, y=489)
-        lc = pag.locateCenterOnScreen(CONFIRM_PT)
+        lc = pag.locateCenterOnScreen(image=CONFIRM_PT)
     pag.click(lc)
     print('Clicked AGREE')
 
 def  x():
-    lc = pag.locateCenterOnScreen(X)
+    lc = pag.locateCenterOnScreen(image=X)
     while lc == None:
-        lc = pag.locateCenterOnScreen(X)
+        lc = pag.locateCenterOnScreen(image=X)
 
     pag.click(lc)
     print('Clicked X')
     
 def agree():
-    lc = pag.locateCenterOnScreen(ตก)
+    lc = pag.locateCenterOnScreen(image=ตก)
     while lc == None:
         pag.moveTo(x=1463, y=489)
-        lc = pag.locateCenterOnScreen(ตก)
+        lc = pag.locateCenterOnScreen(image=ตก)
 
     pag.click(lc)
     print('Clicked AGREE')

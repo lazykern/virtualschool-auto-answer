@@ -49,14 +49,14 @@ def getID():
     time.sleep(0.2)
     auto.click(50,500)
 
-    lc = auto.locateCenterOnScreen(id)
+    lc = auto.locateCenterOnScreen(image=id)
     while lc == None:
         if lc == None:
             auto.press('pageup')
             auto.press('pageup')
             time.sleep(1)
         
-        lc = auto.locateCenterOnScreen(id)
+        lc = auto.locateCenterOnScreen(image=id)
         sys.stdout.write("\r" + "ID not found")
         sys.stdout.flush()
         time.sleep(0.25)
@@ -87,16 +87,16 @@ def getID():
 def save():
 
 
-    lc_save = auto.locateCenterOnScreen(sv1)
+    lc_save = auto.locateCenterOnScreen(image=sv1)
     if lc_save == None:
-        lc_save = auto.locateCenterOnScreen(sv2)
+        lc_save = auto.locateCenterOnScreen(image=sv2)
     while lc_save == None:
         auto.press('pagedown')
         auto.press('pagedown')
         time.sleep(1)
-        lc_save = auto.locateCenterOnScreen(sv1)
+        lc_save = auto.locateCenterOnScreen(image=sv1)
         if lc_save == None:
-            lc_save = auto.locateCenterOnScreen(sv2)
+            lc_save = auto.locateCenterOnScreen(image=sv2)
             if lc_save == None:
                 sys.stdout.write("\r"+ "SAVE not found")
                 sys.stdout.flush()
@@ -107,15 +107,15 @@ def save():
 def skip():
 
 
-    lc_skip = auto.locateCenterOnScreen(skp1)
+    lc_skip = auto.locateCenterOnScreen(image=skp1)
     if lc_skip == None:
-        lc_skip = auto.locateCenterOnScreen(skp2)
+        lc_skip = auto.locateCenterOnScreen(image=skp2)
         if lc_skip == None:
-            lc_skip = auto.locateCenterOnScreen(skp3)
+            lc_skip = auto.locateCenterOnScreen(image=skp3)
             if lc_skip == None:
-                lc_skip = auto.locateCenterOnScreen(skp4)
+                lc_skip = auto.locateCenterOnScreen(image=skp4)
                 if lc_skip == None:
-                    lc_skip = auto.locateCenterOnScreen(skp5)
+                    lc_skip = auto.locateCenterOnScreen(image=skp5)
         
     while lc_skip == None:
 
@@ -123,15 +123,15 @@ def skip():
         auto.press('pagedown')
         time.sleep(1)
         
-        lc_skip = auto.locateCenterOnScreen(skp1)
+        lc_skip = auto.locateCenterOnScreen(image=skp1)
         if lc_skip == None:
-            lc_skip = auto.locateCenterOnScreen(skp2)
+            lc_skip = auto.locateCenterOnScreen(image=skp2)
             if lc_skip == None:
-                lc_skip = auto.locateCenterOnScreen(skp3)
+                lc_skip = auto.locateCenterOnScreen(image=skp3)
                 if lc_skip == None:
-                    lc_skip = auto.locateCenterOnScreen(skp4)
+                    lc_skip = auto.locateCenterOnScreen(image=skp4)
                     if lc_skip == None:
-                        lc_skip = auto.locateCenterOnScreen(skp5)
+                        lc_skip = auto.locateCenterOnScreen(image=skp5)
                         if lc_skip == None:
                             sys.stdout.write("\r"+ "SKIP not found")
                             sys.stdout.flush()
@@ -158,13 +158,13 @@ def clickChoice(choice,lang):
             5: choice_5E
             }
     choiceN = int(choice)
-    lc_choice = auto.locateCenterOnScreen(switcher[choiceN])
+    lc_choice = auto.locateCenterOnScreen(image=switcher[choiceN])
     print(choiceN)
     while lc_choice == None:
 
 
         if (choice == 5) and (lang == 'th'):
-            lc_choice = auto.locateCenterOnScreen('/home/lloli/Documents/GitHub/Sorn/assets/choice_5_old1.png')
+            lc_choice = auto.locateCenterOnScreen(image='/home/lloli/Documents/GitHub/Sorn/assets/choice_5_old1.png')
                 
 
             
@@ -174,7 +174,7 @@ def clickChoice(choice,lang):
             auto.press('pagedown')
             auto.press('pagedown')
             time.sleep(1)
-            lc_choice = auto.locateCenterOnScreen(switcher[choiceN])
+            lc_choice = auto.locateCenterOnScreen(image=switcher[choiceN])
             
 
     print('\n')
@@ -186,13 +186,13 @@ def clickChoice(choice,lang):
 
 
 def find_loading():
-    return auto.locateCenterOnScreen(load)
+    return auto.locateCenterOnScreen(image=load)
 
 def find_50():
-    return auto.locateCenterOnScreen(quiz_50)
+    return auto.locateCenterOnScreen(image=quiz_50)
 
 def find_10():
-    return auto.locateCenterOnScreen(quiz_10)
+    return auto.locateCenterOnScreen(image=quiz_10)
 
 def auto_take50(lang):
     inp_old = None
@@ -232,7 +232,7 @@ def auto_take50(lang):
                 sys.stdout.write("\r" + "Loading")
                 sys.stdout.flush()
                 time.sleep(0.25)
-                if not auto.locateCenterOnScreen(id) == None:
+                if not auto.locateCenterOnScreen(image=id) == None:
                     break
         i = i+1
         print(i)
@@ -297,7 +297,7 @@ def auto_take10(lang,nwrong = 1):
                 sys.stdout.write("\r" + "Loading")
                 sys.stdout.flush()
                 time.sleep(0.25)
-                if not auto.locateCenterOnScreen(id) == None:
+                if not auto.locateCenterOnScreen(image=id) == None:
                     break
         i = i+1
         print('\n' ,i)
