@@ -1,4 +1,4 @@
-# Please don't read the code 😟
+# This project is deprecated
 
 This project has a lot of childish gibberish Python syntax. 
 I'm afraid that you might puke seeing my code. Make sure to have a trash can beside you.
